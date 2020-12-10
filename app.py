@@ -1,6 +1,7 @@
 from flask import Flask, request, redirect, render_template, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from pymongo import MongoClient
 
 ############################################################
 # SETUP
@@ -8,9 +9,7 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
-app.config["MONGO_URI"] = "mongodb://localhost:27017/plantsDatabase"
-mongo = PyMongo(app)
-
+client = MongoClient('mongodb+srv://senpaisam:senpaisam@cluster0.gh2gm.mongodb.net/sam?retryWrites=true&w=majority')
 ############################################################
 # ROUTES
 ############################################################

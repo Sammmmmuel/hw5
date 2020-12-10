@@ -7,9 +7,17 @@ from pymongo import MongoClient
 # SETUP
 ############################################################
 
+load_dotenv()
+MONGODB_USERNAME = os.getenv('MONGODB_USERNAME')
+MONGODB_PASSWORD = os.getenv('MONGODB_PASSWORD')
+MONGODB_DBNAME = 'mydb'
+
 app = Flask(__name__)
 
-client = MongoClient('mongodb+srv://senpaisam:senpaisam@cluster0.gh2gm.mongodb.net/sam?retryWrites=true&w=majority')
+client = MongoClient(f"mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.idqxn.mongodb.net/{MONGODB_DBNAME}?retryWrites=true&w=majority")
+db = client[MONGODB_DBNAME]
+
+
 ############################################################
 # ROUTES
 ############################################################
